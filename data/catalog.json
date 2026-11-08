@@ -1,0 +1,144 @@
+{
+  "artists": [
+    {
+      "id": "kendrick-lamar",
+      "name": "Kendrick Lamar",
+      "aliases": [
+        "K.Dot",
+        "K Dot"
+      ],
+      "image": "kendrick-lamar.png"
+    },
+    {
+      "id": "j-cole",
+      "name": "J. Cole",
+      "aliases": [
+        "Cole",
+        "Jermaine Cole"
+      ],
+      "image": "j-cole.png"
+    },
+    {
+      "id": "beyonce",
+      "name": "Beyoncé",
+      "aliases": [
+        "Queen B"
+      ],
+      "image": null
+    },
+    {
+      "id": "the-notorious-big",
+      "name": "The Notorious B.I.G.",
+      "aliases": [
+        "Biggie",
+        "Biggie Smalls",
+        "Notorious BIG"
+      ],
+      "image": "the-notorious-big.png"
+    },
+    {
+      "id": "billie-eilish",
+      "name": "Billie Eilish",
+      "aliases": [
+        "Billie"
+      ],
+      "image": "billie-eilish.png"
+    },
+    {
+      "id": "drake",
+      "name": "Drake",
+      "aliases": [
+        "Drizzy",
+        "Champagne Papi"
+      ],
+      "image": "drake.png"
+    },
+    {
+      "id": "dr-dre",
+      "name": "Dr. Dre",
+      "aliases": [
+        "Dre",
+        "Andre Young"
+      ],
+      "image": "dr-dre.png"
+    },
+    {
+      "id": "frank-ocean",
+      "name": "Frank Ocean",
+      "aliases": [],
+      "image": "frank-ocean.png"
+    },
+    {
+      "id": "glorilla",
+      "name": "GloRilla",
+      "aliases": [],
+      "image": "glorilla.png"
+    },
+    {
+      "id": "kanye-west",
+      "name": "Kanye West",
+      "aliases": [
+        "Ye",
+        "Yeezy"
+      ],
+      "image": "kanye-west.png"
+    },
+    {
+      "id": "michael-jackson",
+      "name": "Michael Jackson",
+      "aliases": [
+        "MJ",
+        "King of Pop"
+      ],
+      "image": "michael-jackson.png"
+    },
+    {
+      "id": "rihanna",
+      "name": "Rihanna",
+      "aliases": [
+        "RiRi"
+      ],
+      "image": "rihanna.png"
+    },
+    {
+      "id": "snoop-dogg",
+      "name": "Snoop Dogg",
+      "aliases": [
+        "Snoop",
+        "Snoop Doggy Dogg"
+      ],
+      "image": "snoop-dogg.png"
+    },
+    {
+      "id": "steve-lacy",
+      "name": "Steve Lacy",
+      "aliases": [],
+      "image": "steve-lacy.png"
+    },
+    {
+      "id": "tupac",
+      "name": "2Pac",
+      "aliases": [
+        "Tupac",
+        "Tupac Shakur",
+        "Makaveli"
+      ],
+      "image": "tupac.png"
+    },
+    {
+      "id": "tyler-the-creator",
+      "name": "Tyler, the Creator",
+      "aliases": [
+        "Tyler",
+        "Tyler Okonma"
+      ],
+      "image": "tyler-the-creator.png"
+    },
+    {
+      "id": "vince-staples",
+      "name": "Vince Staples",
+      "aliases": [],
+      "image": "vince-staples.png"
+    }
+  ]
+}

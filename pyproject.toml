@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "linernotes"
+version = "0.1.0"
+description = "Search an artist, see them as black-and-white pixel art in your terminal."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "textual>=1.0",   # TUI framework (layout, widgets, events, screens)
+  "pillow>=10.0",   # image loading / resizing / palette mapping
+  # DECISION (docs/ARCHITECTURE.md, D5): add "rapidfuzz" here only if you decide
+  # NOT to write your own fuzzy matching. Write it yourself first, then compare.
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "textual-dev>=1.5",  # `textual console` + `textual run --dev` (live CSS reload, logs)
+]
+
+[project.scripts]
+linernotes = "linernotes.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/linernotes"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

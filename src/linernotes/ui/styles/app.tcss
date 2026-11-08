@@ -1,0 +1,68 @@
+/* Textual CSS (TCSS). Black and white. One screen, two states.
+ * Read the CSS guide + the `align`, `layers`, `layer`, `dock`, `offset`, `display`,
+ * `text-style` style docs.
+ *
+ * The look: pure black background, white text and glyphs, no colour anywhere.
+ * Hierarchy comes from: bold / reverse text (reverse = white bar with black text
+ * = "selected"), UPPERCASE vs normal case, and generous empty space.
+ *
+ * Colours come from the palette TOML (background/foreground, optional ui.dim).
+ * Decide how they get here: hard-code #000/#fff, or set them from Python at startup.
+ *
+ * How the two states work: MainScreen gets the class `-showing` when an artist
+ * is displayed. Every rule below that starts with `MainScreen.-showing` only applies
+ * then. Toggling the class moves the search bar. No widgets are created or destroyed.
+ */
+
+MainScreen {
+    /* background: black; color: white; */
+    /* layers: art search;   <- later names draw ON TOP: search over art */
+    /* align: center middle; <- state 1: centres the SearchBox */
+}
+
+/* ---- State 1: idle, search centred ------------------------------------ */
+
+MainScreen SearchBox {
+    /* layer: search; */
+    /* width: a fixed number of cells (e.g. 40) or a percentage? Try both. */
+    /* height: auto; */
+}
+
+MainScreen PixelArt {
+    /* display: none;   <- hidden until an artist is chosen */
+}
+
+/* ---- State 2: artist showing, search top-left, art centred ------------- */
+
+MainScreen.-showing {
+    /* align: center middle;  <- now this centres the PixelArt */
+}
+
+MainScreen.-showing SearchBox {
+    /* Pull the bar out of the centred flow and pin it to the top-left.
+       Options to try: `dock: top` + width + margin, or `offset`.
+       Keep it narrow (e.g. 30-40 cells) so it doesn't cross over the art. */
+}
+
+MainScreen.-showing PixelArt {
+    /* display: block; layer: art; width: auto; height: auto; */
+}
+
+/* ---- Search box internals (both states) -------------------------------- */
+
+SearchBox Input {
+    /* Borders in mono: `border: solid white` (thin) vs `heavy` vs `none` with a
+       ">" prompt drawn as text. The prompt-only look is very CLI. Try it. */
+}
+
+SearchBox Input:focus {
+    /* how does focus show without colour? border style change? */
+}
+
+SearchBox OptionList {
+    /* max-height; background: black (opaque, so it cleanly covers the art below) */
+}
+
+SearchBox OptionList > .option-list--option-highlighted {
+    /* text-style: reverse;  <- the highlighted result as an inverted bar */
+}

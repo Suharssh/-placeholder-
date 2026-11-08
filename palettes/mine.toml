@@ -1,0 +1,17 @@
+# Black and white. Everything (portraits and the search UI) is drawn with these two.
+#
+# With only two colours, shading in a portrait comes ENTIRELY from dithering:
+# the density of white pixels on black stands in for grey. See docs/PIXEL_ART.md.
+
+name = "mono"
+background = "#000000"
+
+[ramps]
+mono = ["#000000", "#ffffff"]
+
+# DECISION (ARCHITECTURE D9): stay strictly 1-bit, or allow ONE dim grey for
+# secondary UI text (unhighlighted search results, hints)? Uncomment to allow it;
+# the UI reads it as `ui.dim` and the art pipeline never uses it.
+#
+# [ui]
+# dim = "#3a3a3a"
