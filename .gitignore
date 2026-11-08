@@ -9,3 +9,5 @@ dist/
 # Artist photos are usually someone else's copyright. Keep them local.
 assets/artists/*
 !assets/artists/.gitkeep
+
+BUILD.md
