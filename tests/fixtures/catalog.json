@@ -1,0 +1,7 @@
+{
+  "artists": [
+    { "id": "kendrick-lamar", "name": "Kendrick Lamar", "aliases": ["K.Dot", "K Dot"], "image": "kendrick-lamar.png" },
+    { "id": "j-cole", "name": "J. Cole", "aliases": ["Cole", "Jermaine Cole"], "image": "j-cole.png" },
+    { "id": "beyonce", "name": "Beyoncé", "aliases": ["Queen B"], "image": "beyonce.png" }
+  ]
+}

@@ -29,7 +29,7 @@ def pytest_runtest_makereport(item, call):  # noqa: ANN001
 
 @pytest.fixture
 def catalog_path() -> Path:
-    return ROOT / "data" / "catalog.json"
+    return ROOT / "tests" / "fixtures" / "catalog.json"
 
 
 @pytest.fixture
