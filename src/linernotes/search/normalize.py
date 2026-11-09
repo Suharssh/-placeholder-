@@ -1,36 +1,34 @@
-"""Text normalization: make "Beyoncé", "BEYONCE" and "beyonce " compare equal.
+"""
+This file normalizes and removes the spl characters in artist's name, and makes it uniform for further 
+preprocessing 
 
-Every string goes through the SAME normalize() at index time and at query time.
-If they ever differ, search silently breaks. That invariant matters more than
-any clever scoring.
 """
 
+
 from __future__ import annotations
-
-
+import re
+import unicodedata
+regex = re.compile(r"[^\w\s]")
 def normalize(text: str) -> str:
-    """Return a canonical, comparison-ready form of `text`.
+   #convert to lowercase
+    folded = text.casefold()
 
-    Steps to consider (order matters; think about why):
-      1. Unicode normalize (unicodedata.normalize, NFKD) and drop combining marks
-         -> "Beyoncé" becomes "Beyonce".
-      2. casefold() (not lower(): look up the difference).
-      3. Punctuation policy. "m.A.A.d city", "DNA.", "N.Y. State of Mind", "AC/DC".
-         Delete punctuation, or replace it with a space? The tests in
-         tests/test_normalize.py assume "delete dots, everything else -> space".
-         If you choose differently, change the test and write down why.
-      4. "&" vs "and"? "feat." / "ft."? Your call; start simple.
-      5. Collapse runs of whitespace and strip.
+    #removes the dilemna of accented chars, like beyonce's -> separates the accented chars
+    decomposed = unicodedata.normalize("NFKD", folded)
 
-    Must be idempotent: normalize(normalize(x)) == normalize(x).
-    """
-    raise NotImplementedError
+    # throw away the accent marks (combining characters): "beyonce´" -> "beyonce".
+    no_accents = "".join(ch for ch in decomposed if not unicodedata.combining(ch))
+
+    # remove dots entirely
+    no_dots = no_accents.replace(".", "")
+
+    # replace any other punctuation with a space
+    spaced = regex.sub(" ", no_dots)
+
+    # prolonged and trailing spaces to be removed
+    return " ".join(spaced.split())
 
 
 def tokenize(text: str) -> list[str]:
-    """Split already-normalized text into tokens.
-
-    "money trees" -> ["money", "trees"]. Trivial now. It's a separate function so
-    you can later add stop-words ("the", "a") or stemming in exactly one place.
-    """
-    raise NotImplementedError
+    # Input is already normalized, so splitting on spaces is enough: "money trees" -> ["money", "trees"].
+    return text.split()
